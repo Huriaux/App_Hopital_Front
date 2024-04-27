@@ -2,7 +2,6 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <>
         <footer>
             <div className='container-text'>
                 <div className='text'>
@@ -16,8 +15,6 @@ const Footer = () => {
                 </div>
             </div>
         </footer>
-            
-        </>
     );
 };
 
