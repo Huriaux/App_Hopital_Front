@@ -21,7 +21,7 @@ const AjoutPatient = () => {
             lastName,
             firstName,
             birthdate,
-            socialSecurityNumber,
+            socialSecurityNumber
             };
             await ajoutPatientController(newPatient);
         
@@ -44,26 +44,26 @@ const AjoutPatient = () => {
             <h2>Ajouter un nouveau patient :</h2>
             <form onSubmit={handleSubmit} >
                 <div className='ajoutPrenom'>
-                    <label htmlFor='firstName'>Prénom :</label>
+                    <label htmlFor='firstName'>Prénom : </label>
                     <input type="text" id='firstName' value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
                 </div>
 
                 <div className='ajoutNom'>
-                    <label htmlFor='lastName'>Nom :</label>
+                    <label htmlFor='lastName'>Nom : </label>
                     <input type="text" id='lastName' value={lastName} onChange={(e) => setLastName(e.target.value)} required />
                 </div>
 
                 <div className='ajoutDateNaiss'>
-                    <label htmlFor='birthdate'>Date de naissance :</label>
+                    <label htmlFor='birthdate'>Date de naissance : </label>
                     <input type="date" id='birthdate' value={birthdate} onChange={(e) => setBirthdate(e.target.value)} required />
                 </div>
 
                 <div className='ajoutNumSecu'>
-                    <label htmlFor='socialSecurityNumber'>Numéro de Sécu :</label>
+                    <label htmlFor='socialSecurityNumber'>Numéro de Sécu : </label>
                     <input type="text" id='socialSecurityNumber' value={socialSecurityNumber} onChange={(e) => setSocialSecurityNumber(e.target.value)} required />
                 </div>   
 
-                <button type='submit'>Enregistrer</button>             
+                <button className='btnAjoutPatient' type='submit'>Enregistrer</button>             
             </form>
 
         </div>

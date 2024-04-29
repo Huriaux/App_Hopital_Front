@@ -17,7 +17,7 @@ const Header = () => {
 
 
                 <DropdownButton id="dropdown1" title="Patient">
-                    <Dropdown.Item className='drop' href="/src/views/AjoutPatient.jsx">Ajouter</Dropdown.Item>
+                    <Dropdown.Item className='drop' href="/AjoutPatient">Ajouter</Dropdown.Item>
                     <Dropdown.Item className='drop' href="#/action-2">Modifier</Dropdown.Item>
                 </DropdownButton>
 

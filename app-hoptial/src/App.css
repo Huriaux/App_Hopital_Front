@@ -28,7 +28,14 @@
 
 }
 
+
 /* Main */
+main {
+  position: relative;
+  min-height: calc(100vh - 130px - 80px);
+  justify-content: center;
+  align-items: center;
+}
 
 .imageFond {
   background-size: cover;
@@ -40,13 +47,44 @@
   left: 0;
 }
 
-/* Main */
-main {
-  position: relative;
-  min-height: calc(100vh - 130px - 80px);
-  justify-content: center;
-  align-items: center;
+/* Main/Page: AjoutPatient */
+
+.container-form {
+  background-color: #CEEEEE;
 }
+
+h2 {
+  padding: 20px;
+  color: black;
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+form {
+  margin: 25px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+}
+
+
+input#firstName, input#lastName, input#birthdate, input#socialSecurityNumber {
+  border: 1px solid #034F5C;
+} 
+
+.ajoutPrenom, .ajoutNom, .ajoutDateNaiss, .ajoutNumSecu {
+  padding: 10px;
+}
+
+button.btnAjoutPatient {
+  width: 100px;
+  margin: 20px;
+}
+
+
+
 
 
 /* Footer */
