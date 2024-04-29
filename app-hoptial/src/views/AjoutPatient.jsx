@@ -25,7 +25,6 @@ const AjoutPatient = () => {
             };
             await ajoutPatientController(newPatient);
         
-        
             setLastName("");
             setFirstName("");
             setBirthdate("");
@@ -36,6 +35,7 @@ const AjoutPatient = () => {
         } finally {
             setIsLoading(false);
         }
+        
     };
 
     return (

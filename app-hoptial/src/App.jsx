@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Accueil from "./views/Accueil";
 import AjoutPatient from "./views/AjoutPatient";
+import ModifierPatient from "./views/ModifierPatient";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Accueil />} />
         <Route path="/ajoutPatient" element={<AjoutPatient />} />
+        <Route path="/modifPatient" element={<ModifierPatient />} />
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -11,14 +11,13 @@ const Header = () => {
     return (
         <nav className="navbar">
             <div className="container">
-                    <Link to="/">
+                    <Link className='container-link' to="/">
                         <img src={Logo} alt="Logo Hopital"/>
                     </Link>
 
-
                 <DropdownButton id="dropdown1" title="Patient">
-                    <Dropdown.Item className='drop' href="/AjoutPatient">Ajouter</Dropdown.Item>
-                    <Dropdown.Item className='drop' href="#/action-2">Modifier</Dropdown.Item>
+                    <Dropdown.Item className='drop'><Link to="/AjoutPatient">Ajouter</Link></Dropdown.Item>
+                    <Dropdown.Item className='drop'><Link to="/ModifierPatient">Modifier</Link></Dropdown.Item>
                 </DropdownButton>
 
                 <DropdownButton id="dropdown2" title="Séjour">
