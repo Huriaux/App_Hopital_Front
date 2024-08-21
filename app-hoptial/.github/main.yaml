@@ -1,0 +1,64 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  clear-docker-context:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Clear docker context
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script: |
+            docker stop app-hopital
+            docker system prune -a -f
+
+  send-files-server:
+    runs-on: ubuntu-latest
+    needs: clear-docker-context
+    if: always()
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Send files to server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          source: .
+          target: app-hopital
+
+      - name: Build API Image
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script: |
+            cd /${{ secrets.SERVER_USERNAME }}/app-hopital
+            docker build -t app-hopital .
+
+      - name: Deploy API Image
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script: |
+            docker run -d \
+            --name=app-hopital \
+            -p 3000:3000 \
+            --restart always \
+            app-hopital
