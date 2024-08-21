@@ -1,4 +1,4 @@
-FROM node:21.7.3-alpine3.20 as base
+FROM node:18-slim as base
 
 WORKDIR /app-hoptial
 
